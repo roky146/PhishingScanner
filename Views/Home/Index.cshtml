@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<h1 class="text-center">Escáner de Palabras de Phishing</h1>
+
+<div id="drop-area" class="file-field input-field">
+    <form asp-controller="Home" asp-action="Scan" enctype="multipart/form-data" method="post">
+        <div class="drop-area-inner">
+            <p>Arrastra y suelta el archivo aquí</p>
+            <p>o</p>
+            <button type="button" class="btn" onclick="document.getElementById('fileInput').click()">Selecciona Archivo</button>
+            <input type="file" id="fileInput" name="file" class="hidden">
+        </div>
+        <div class="center-align">
+            <button type="submit" class="btn">Escanear Archivo</button>
+        </div>
+    </form>
+</div>

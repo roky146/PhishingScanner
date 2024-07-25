@@ -1,0 +1,33 @@
+@model Dictionary<string, PhishingScanner.Models.WordData>
+    @{
+    ViewData["Title"] = "Resultados del Escaneo";
+    }
+
+    <h3 class="text-center">Resultados del Escaneo</h3>
+
+    <div class="section">
+        <h5>Texto Escaneado:</h5>
+        <p>@Html.Raw(ViewBag.OriginalText)</p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Palabra</th>
+                <th>Peso Original</th>
+                <th>Ocurrencias</th>
+                <th>Nuevo Peso</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var result in Model)
+        {
+            <tr>
+                <td>@result.Value.Word</td>
+                <td>@result.Value.OriginalWeight</td>
+                <td>@result.Value.Occurrences</td>
+                <td>@result.Value.NewWeight</td>
+            </tr>
+        }
+        </tbody>
+    </table>
